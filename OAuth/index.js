@@ -1,6 +1,6 @@
 // Импортируем нужные функции из SDK 2026 года
-const urlParamsV2Params = new URLSearchParams(window.location.search);
-const access_token = urlParamsV2Params.get('access_token');
+const urlParamsV2Paramsd = new URLSearchParams(window.location.search);
+const access_token = urlParamsV2Paramsd.get('access_token');
 
   import { initializeApp } from "https://www.gstatic.com";
   import { getDatabase, ref, set, push } from "https://www.gstatic.com";
