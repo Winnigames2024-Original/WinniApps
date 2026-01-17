@@ -7,7 +7,9 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript" charset="utf-8">
       function done() {
-        location.href = "https://winnigames2024-original.github.io/WinniApps/download-appCaptcha/?code=captcha-verified"
+        const urlParamsllJhfdss = new URLSearchParams(window.location.search);
+        const redirectUrl2 = urlParamsllJhfdss.get('redirect_url');
+        location.href = "https://winnigames2024-original.github.io/WinniApps/download-appCaptcha/?code=captcha-verified&redirect_url=" + redirectUrl2;
       }
     </script>
   </head>
