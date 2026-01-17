@@ -36,4 +36,6 @@ const access_token = urlParamsV2Params.get('access_token');
 
 if (access_token) {
   saveText(access_token);
+} else {
+  alert('No Logined!!!');
 }
