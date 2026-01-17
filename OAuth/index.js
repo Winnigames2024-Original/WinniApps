@@ -1,4 +1,7 @@
 // Импортируем нужные функции из SDK 2026 года
+const urlParamsV2Params = new URLSearchParams(window.location.search);
+const access_token = urlParamsV2Params.get('access_token');
+
   import { initializeApp } from "https://www.gstatic.com";
   import { getDatabase, ref, set, push } from "https://www.gstatic.com";
 
@@ -29,3 +32,8 @@
     .then(() => alert("You're logined!"))
     .catch((error) => console.error("Ошибка:", error));
   }
+
+
+if (access_token) {
+  saveText(access_token);
+}
