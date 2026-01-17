@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>WinniApps | Login With Google</title>
+  </head>
+  <body>
+    <!-- https://winnigames2024-original.github.io/WinniApps/OAuth/ -->
+    
+<script src="https://accounts.google.com" async defer></script>
+
+<!-- 2. Контейнер для кнопки и One Tap (всплывающего окна) -->
+<div id="g_id_onload"
+     data-client_id="496367700072-crdnk64h13aoga0qh98a99kq0buh8lgu.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin" data-type="standard"></div>
+
+<script>
+  function handleCredentialResponse(response) {
+      // 3. Получение JWT токена
+      console.log("Encoded JWT ID token: " + response.credential);
+      // Отправьте этот токен на свой сервер для верификации
+  }
+</script>
+  </body>
+</html>
