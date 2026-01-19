@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="https://winnigames2024-original.github.io/WinniApps/download-appCaptcha/index.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script type="module">
+    <!-- <script type="module">
       import { appendFile } from 'node:fs/promises';
 
 async function addText(textToAdd) {
@@ -21,10 +21,10 @@ async function addText(textToAdd) {
 
 
 
-    </script>
+    </script> -->
     <script type="text/javascript" charset="utf-8">
       function done() {
-        addText('.true\n');
+        document.cookie = "captchaVerified=true; path=/; max-age=3600";
         location.href = "https://winnigames2024-original.github.io/WinniApps/download-appCaptcha/?code=captcha-verified";
       }
     </script>
