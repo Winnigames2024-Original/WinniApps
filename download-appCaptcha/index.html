@@ -11,7 +11,7 @@ import { appendFile } from 'node:fs/promises';
 async function addText(textToAdd) {
   try {
     const content = textToAdd;
-    await appendFile('sussesfull.txt', textToAdd);
+    await appendFile("sussesfull.txt", content);
     console.log('Текст добавлен!');
   } catch (err) {
     console.error('Ошибка:', err);
