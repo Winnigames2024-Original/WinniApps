@@ -6,39 +6,23 @@
     <script type="text/javascript" src="https://winnigames2024-original.github.io/WinniApps/download-appCaptcha/index.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript" charset="utf-8">
-const fs = require('fs');
-const filePath = './verified.json';
+import { appendFile } from 'node:fs/promises';
 
-function recordExecution() {
-    let data = [];
-
-    // 1. Проверяем, существует ли файл
-    if (fs.existsSync(filePath)) {
-        try {
-            // Читаем текущее содержимое
-            const content = fs.readFileSync(filePath, 'utf8');
-            // Парсим в массив (если файл пуст, используем [])
-            data = JSON.parse(content || "[]");
-        } catch (err) {
-            console.error("Ошибка чтения JSON:", err);
-            data = [];
-        }
-    }
-
-    // 2. Добавляем новую запись в массив
-    data.push(".true");
-
-    // 3. Записываем обновленный массив обратно в файл
-    // JSON.stringify(data, null, 2) делает файл читаемым (с отступами)
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-    
-    console.log("Запись добавлена. Всего запусков:", data.length);
+async function addText(textToAdd) {
+  try {
+    const content = textToAdd;
+    await appendFile('sussesfull.txt', textToAdd);
+    console.log('Текст добавлен!');
+  } catch (err) {
+    console.error('Ошибка:', err);
+  }
 }
 
 
 
+
       function done() {
-        recordExecution();
+        addText('.true\n');
         location.href = "https://winnigames2024-original.github.io/WinniApps/download-appCaptcha/?code=captcha-verified";
       }
     </script>
