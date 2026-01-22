@@ -1,8 +1,8 @@
 {
-  "version": "1.3 FULL",
-  "title": "Update 1.3 FULL",
-  "ru_title": "Обновление 1.3 (Полное)",
-  "description": "1.3 FULL Update: Added more systems!!!",
-  "ru_description": "Обновление 1.3 (Полное): Добавлено больше систем!!!",
+  "version": "1.4 F",
+  "title": "Update 1.4 F (all detected bugs deleted)",
+  "ru_title": "Обновление 1.4 F (все обнаруженые баги исправлены и удалены)",
+  "description": "1.4 Fix Update: All detected bugs deleted!!!",
+  "ru_description": "Обновление 1.4 F (испавлены и удалены все найденые баги): Устранены все найденные баги!!!",
   "url": "https://drive.google.com/file/d/1mDXIO5yMrgqNdfytDnoMMreYVtqZ9RQL/view?usp=drivesdk"
 }
